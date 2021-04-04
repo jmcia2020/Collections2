@@ -16,5 +16,4 @@ namespace LendingLibrary.Collections
         /// <returns>The item that was removed.</returns>
         T Unpack(int index);
     }
-
 }
