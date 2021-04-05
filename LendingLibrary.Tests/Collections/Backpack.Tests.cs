@@ -16,7 +16,7 @@ namespace LendingLibrary.Tests.Collections
 
             Assert.Empty(bag);
         }
-        
+
         [Fact]
         public void Backpack_can_pack_something()
         {
@@ -24,7 +24,7 @@ namespace LendingLibrary.Tests.Collections
             Backpack<string> bag = new Backpack<string>();
 
             string item1 = "Water Bottle";
-            string item2 = "Lipgloss";
+            string item2 = "Lip Gloss";
 
             //Act
             bag.Pack(item1);
@@ -50,6 +50,23 @@ namespace LendingLibrary.Tests.Collections
 
             //Assert
             Assert.Empty(bag);
+        }
+
+
+        [Fact]
+        public void Backpack_can_Unpack_something()
+        {
+            //Arrange
+            Backpack<string> bag = new Backpack<string>();
+            bag.Pack("Water Bottle");
+            bag.Pack("Lip Gloss");
+
+            //Act
+            bag.Unpack(0);
+
+            //Assert
+            Assert.Equal(new[] { "Lip Gloss" }, bag);
+
         }
     }
 }
