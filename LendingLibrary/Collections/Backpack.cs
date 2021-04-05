@@ -18,12 +18,12 @@ namespace LendingLibrary.Collections
             throw new System.NotImplementedException();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerator<T> GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new System.NotImplementedException();
         }
