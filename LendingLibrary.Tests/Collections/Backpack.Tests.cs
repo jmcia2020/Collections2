@@ -38,5 +38,18 @@ namespace LendingLibrary.Tests.Collections
             //Assert
             Assert.Equal(new[] { item1, item2 }, bag);
         }
+
+        [Fact]
+        public void Backpack_cannot_pack_null()
+        {
+            //Arrange
+            Backpack<string> bag = new Backpack<string>();
+
+            //Act
+            bag.Pack(null);
+
+            //Assert
+            Assert.Empty(bag);
+        }
     }
 }
