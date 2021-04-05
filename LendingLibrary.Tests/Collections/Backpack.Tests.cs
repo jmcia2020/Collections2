@@ -62,11 +62,30 @@ namespace LendingLibrary.Tests.Collections
             bag.Pack("Lip Gloss");
 
             //Act
-            bag.Unpack(0);
+            string removed = bag.Unpack(0);
 
             //Assert
+            Assert.Equal("Water Bottle", removed);
             Assert.Equal(new[] { "Lip Gloss" }, bag);
+        }
 
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(2)]
+
+        public void Backpack_cannot_Unpack_out_of_range(int badIndex)
+        {
+            //Arrange
+            Backpack<string> bag = new Backpack<string>();
+            bag.Pack("Water Bottle");
+            bag.Pack("Lip Gloss");
+
+            //Assert           
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            {
+                //Act 
+                string removed = bag.Unpack(badIndex);
+            });
         }
     }
 }

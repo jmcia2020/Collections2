@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LendingLibrary.Collections;
+using LendingLibrary.Models;
+using System;
 
 namespace LendingLibrary
 {
@@ -6,7 +8,13 @@ namespace LendingLibrary
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Backpack<Book> books = new Backpack<Book>();
+            books.Pack(new Book { Title = "Grapes of Wrath" });
+
+            foreach (Book book in books)
+            {
+                Console.WriteLine(book.Title);
+            }
         }
     }
 

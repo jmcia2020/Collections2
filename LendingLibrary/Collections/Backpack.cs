@@ -10,7 +10,7 @@ namespace LendingLibrary.Collections
 
         public void Pack(T item)
         {
-            if (item == null)
+            if (item != null)
             {
                 storage.Add(item);
             }      
@@ -18,7 +18,9 @@ namespace LendingLibrary.Collections
 
         public T Unpack(int index)
         {
-            throw new System.NotImplementedException();
+            T removed = storage[index];
+            storage.RemoveAt(index);
+            return removed;
         }
 
         public IEnumerator<T> GetEnumerator()
